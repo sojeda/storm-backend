@@ -1,24 +1,43 @@
 'use strict'
 
+const User = use('App/Models/User')
+
 class UserController {
-  index ({ request, response }) {
-    //
+  async index ({ request, response }) {
+    return await User.all()
   }
 
-  store ({ request, response }) {
-    //
+  async store ({ request, response, auth }) {
+    const { username, password, email } = request.all();
+
+    const user = await User.create({ username, password, email  })
+
+    const token = await auth.generate(user)
+
+    response.json({
+      message: 'El usuario ha sido creado exitosamente',
+      token,
+      user: {
+        username: user.username,
+        email: user.email,
+      },
+    })
   }
 
-  show ({ request, response }) {
-    //
+  async show ({ request, response, auth }) {
+    try {
+      return await auth.getUser()
+    } catch (error) {
+      response.send('Missing or invalid jwt token')
+    }
   }
 
   update ({ request, response }) {
-    //
+    response.json({})
   }
 
   destroy ({ request, response }) {
-    //
+    response.json({})
   }
 }
 

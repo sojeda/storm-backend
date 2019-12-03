@@ -18,7 +18,7 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 
-Route.resource('users', 'Backoffice/UserController')
+Route.resource('users', 'UserController')
   .apiOnly()
   .validator(new Map([
     [['users.store'], ['StoreUser']],
