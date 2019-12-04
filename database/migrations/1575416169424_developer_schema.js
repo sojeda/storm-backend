@@ -7,6 +7,13 @@ class DeveloperSchema extends Schema {
   up () {
     this.create('developers', (table) => {
       table.increments()
+      table.string("name")
+      table.text("description")
+      table.string("logo")
+      table.string("youtube")
+      table.string("instagram").nullable()
+      table.string("facebook").nullable()
+      table.string("web").nullable()
       table.timestamps()
     })
   }

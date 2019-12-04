@@ -24,3 +24,15 @@ Factory.blueprint('App/Models/User', async (faker) => {
     email: faker.email()
   }
 })
+
+Factory.blueprint('App/Models/Developer', async (faker) => {
+  return {
+    name: faker.name(),
+    description: faker.paragraph(),
+    logo: faker.avatar({protocol: "https"}),
+    youtube: faker.domain(),
+    instagram: faker.domain(),
+    facebook: faker.domain(),
+    web: faker.url(),
+  }
+})
