@@ -31,4 +31,14 @@ Route.resource('users', 'UserController')
     [['users.update'], ['UpdateUser']]
   ]))
 
+  Route.resource('games', 'GameController')
+  .apiOnly()
+  .middleware(new Map([
+    [['update', 'destroy'], ['auth']]
+  ]))
+  .validator(new Map([
+    [['game.store'], ['StoreGame']],
+    [['game.update'], ['UpdateGame']]
+  ]))
+
 Route.resource('admin/users', 'Backoffice/UserController').apiOnly().middleware(['auth'])
