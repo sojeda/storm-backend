@@ -31,4 +31,24 @@ Route.resource('users', 'UserController')
     [['users.update'], ['UpdateUser']]
   ]))
 
-Route.resource('admin/users', 'Backoffice/UserController').apiOnly().middleware(['auth'])
+  
+//Routes Front
+Route.group(() => {
+    Route.get('/', 'DeveloperController.index' )   
+    Route.get('show/:id', 'DeveloperController.show')  
+}).prefix('developer')
+
+//Routes Back
+Route.resource('admin/developers', 'Backoffice/DevelopersControllers')
+  .apiOnly()
+  .middleware(new Map([
+    [['update', 'destroy'], ['auth']]
+  ]))
+  .validator(new Map([
+    [['developers.store'], ['StoreDevelopers']],
+    [['developers.update'], ['UpdateDevelopers']]
+  ]));
+  
+
+Route.resource('admin/users', 'Backoffice/UserController').apiOnly().middleware(['auth']);
+
