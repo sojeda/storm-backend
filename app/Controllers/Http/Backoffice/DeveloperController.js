@@ -2,7 +2,7 @@
 const Developer = use('App/Models/Developer')
 
 class DeveloperController {
-
+    
 
 }
 
