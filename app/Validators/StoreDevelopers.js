@@ -3,8 +3,10 @@
 class StoreDevelopers {
   get rules () {
     return {
-      name: 'required|unique:developers',
-      password: 'required'
+      name: `required|unique:developer,name,id,${developerId}`,
+      password: 'required',
+      logo:'required',
+      youtube:'required'
     }
   }
 }
