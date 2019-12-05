@@ -9,13 +9,13 @@ class LoginController {
       password: 'required'
     }
 
-    const validation = await validate(request.all(), rules)
+    const validation = await validate(request.post(), rules)
 
     if (validation.fails()) {
       return response.json(validation.messages())
     }
 
-    const { email, password } = response
+    const { email, password } = request.post()
 
     const token = await auth.attempt(email, password)
 

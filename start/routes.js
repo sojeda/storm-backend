@@ -32,3 +32,12 @@ Route.resource('users', 'UserController')
   ]))
 
 Route.resource('admin/users', 'Backoffice/UserController').apiOnly().middleware(['auth'])
+
+Route.resource('categories', 'CategoryController').apiOnly()
+Route.resource('admin/categories', 'Backoffice/CategoryController')
+  .apiOnly()
+  .validator(new Map([
+    [['category.store'], ['StoreCategory']],
+    [['category.update'], ['UpdateCategory']]
+  ]))
+  .middleware(['auth'])
