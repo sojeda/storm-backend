@@ -8,21 +8,12 @@ class GameController {
     }
 
     async store({ request, response }) {
-        const { title, description, developer_id, price, apt } = request.all();
+        const { title, description, developer_id, year, apt, video , price  } = request.all();
 
-        const game = await Game.create({ title, description, developer_id, price, apt })
-
+        const game = await Game.create({ title, description, developer_id, year, apt, video , price })
         response.json({
             message: 'game esta mal',
-            game: {
-                title: game.title,
-                description: game.description,
-                developer_id: game.developer_id,
-                price: game.price,
-                apt: game.apt,
-                video: game.video,
-                year: game.year
-            },
+            game
         })
     }
 
