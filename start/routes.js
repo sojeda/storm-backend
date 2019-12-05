@@ -31,6 +31,18 @@ Route.resource('users', 'UserController')
     [['users.update'], ['UpdateUser']]
   ]))
 
+// Routes categories
+//Routes Front
+Route.resource('categories', 'CategoryController').apiOnly()
+//Routes Back
+Route.resource('admin/categories', 'Backoffice/CategoryController')
+  .apiOnly()
+  .validator(new Map([
+    [['category.store'], ['StoreCategory']],
+    [['category.update'], ['UpdateCategory']]
+  ]))
+  .middleware(['auth'])
+
 //Routes Developer  
 //Routes Front
 Route.group(() => {
