@@ -31,7 +31,7 @@ Route.resource('users', 'UserController')
     [['users.update'], ['UpdateUser']]
   ]))
 
-  
+//Routes Developer  
 //Routes Front
 Route.group(() => {
     Route.get('/', 'DeveloperController.index' )   
