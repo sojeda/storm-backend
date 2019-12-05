@@ -39,14 +39,12 @@ Route.group(() => {
 }).prefix('developer')
 
 //Routes Back
-Route.resource('admin/developers', 'Backoffice/DevelopersControllers')
+Route.resource('admin/developer', 'Backoffice/DeveloperController')
   .apiOnly()
-  .middleware(new Map([
-    [['update', 'destroy'], ['auth']]
-  ]))
+  .middleware(['auth'])
   .validator(new Map([
-    [['developers.store'], ['StoreDevelopers']],
-    [['developers.update'], ['UpdateDevelopers']]
+    [['developer.store'], ['StoreDevelopers']],
+    [['developer.update'], ['UpdateDevelopers']]
   ]));
   
 
