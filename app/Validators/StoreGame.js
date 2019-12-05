@@ -9,7 +9,7 @@ class StoreGame {
       price: 'required',
       apt: 'required',
       video: 'required',
-      year: 'required'
+      year: 'required|integer'
     }
   }
 }
