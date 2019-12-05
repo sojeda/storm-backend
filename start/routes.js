@@ -31,6 +31,18 @@ Route.resource('users', 'UserController')
     [['users.update'], ['UpdateUser']]
   ]))
 
+// Routes categories
+//Routes Front
+Route.resource('categories', 'CategoryController').apiOnly()
+//Routes Back
+Route.resource('admin/categories', 'Backoffice/CategoryController')
+  .apiOnly()
+  .validator(new Map([
+    [['category.store'], ['StoreCategory']],
+    [['category.update'], ['UpdateCategory']]
+  ]))
+  .middleware(['auth'])
+
 //Routes Developer  
 //Routes Front
 Route.group(() => {
@@ -39,14 +51,12 @@ Route.group(() => {
 }).prefix('developer')
 
 //Routes Back
-Route.resource('admin/developers', 'Backoffice/DevelopersControllers')
+Route.resource('admin/developer', 'Backoffice/DeveloperController')
   .apiOnly()
-  .middleware(new Map([
-    [['update', 'destroy'], ['auth']]
-  ]))
+  .middleware(['auth'])
   .validator(new Map([
-    [['developers.store'], ['StoreDevelopers']],
-    [['developers.update'], ['UpdateDevelopers']]
+    [['developer.store'], ['StoreDevelopers']],
+    [['developer.update'], ['UpdateDevelopers']]
   ]));
   
 

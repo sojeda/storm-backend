@@ -11,6 +11,16 @@ class DeveloperController {
         return await Developer.find(params.id)
     };
 
+    async store ({ request, response}){
+        const developerData = request.only(['name', 'description', 'logo', 'youtube', 'instagram', 'facebook', 'web']);
+
+        let developer = await Developer.create(developerData)
+
+       response.json({
+           respuesta: "Se ha creado con exito un developer"
+       })
+    }
+
     async update ({ request, response, auth, params }) {
         try {
           const { name, description, logo, youtube, instagram, facebook, web   } = request.all();
@@ -36,7 +46,10 @@ class DeveloperController {
         } catch (error) {
           response.send('Ah ocurrido un error en el servidor')
         };
-      };
-};
+    }
+
+    
+        
+}
 
 module.exports = DeveloperController

@@ -10,7 +10,7 @@ class DeveloperSchema extends Schema {
       table.string("name")
       table.text("description")
       table.string("logo")
-      table.string("youtube")
+      table.string("youtube").nullable()
       table.string("instagram").nullable()
       table.string("facebook").nullable()
       table.string("web").nullable()
