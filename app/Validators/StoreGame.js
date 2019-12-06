@@ -5,6 +5,7 @@ class StoreGame {
     return {
       title: 'required',
       description: 'required',
+      category: 'required',
       developer_id: 'required',
       price: 'required',
       apt: 'required',
