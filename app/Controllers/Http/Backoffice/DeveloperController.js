@@ -17,7 +17,7 @@ class DeveloperController {
         let developer = await Developer.create(developerData)
 
        response.json({
-           respuesta: "Se ha creado con exito un developer"
+           message: "Se ha creado con exito un developer"
        })
     }
 
@@ -46,6 +46,21 @@ class DeveloperController {
         } catch (error) {
           response.send('Ah ocurrido un error en el servidor')
         };
+    }
+
+    async destroy ({request, response, params}) {
+
+        try{
+        const dev = await Developer.findOrFail(params.id)
+        
+        await dev.delete()
+
+        response.json({
+            message: "Se ha eliminado el registro con nombre " + dev.name
+        })
+        }catch{
+            response.notFound('No se encuentra el id provisto en la base de datos')
+        }
     }
 
     

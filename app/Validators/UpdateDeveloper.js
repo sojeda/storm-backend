@@ -7,8 +7,7 @@ class UpdateDeveloper {
     return {
       name: `required|unique:developer,name,id,${developerId}`,
       description:'required',
-      logo:'required',
-      youtube:'required',
+      logo:'required'
     }
   }
 }

@@ -5,8 +5,7 @@ class StoreDevelopers {
     return {
       name: `required|unique:developer,name,id,${developerId}`,
       password: 'required',
-      logo:'required',
-      youtube:'required'
+      logo:'required'
     }
   }
 }
