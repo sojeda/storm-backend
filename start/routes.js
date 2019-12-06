@@ -40,4 +40,4 @@ Route.resource('admin/categories', 'Backoffice/CategoryController')
     [['category.store'], ['StoreCategory']],
     [['category.update'], ['UpdateCategory']]
   ]))
-  .middleware(['auth'])
+  //.middleware(['auth'])
