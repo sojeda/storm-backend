@@ -44,8 +44,18 @@ class GameController {
         }
     }
 
-    destroy({ request, response }) {
-        response.json({})
+    async destroy({ request, response, params }) {
+        const { id } = params;
+
+        try {
+            let game = await Game.find(id);
+            await game.delete()
+            response.status(200).json({
+                message: 'El juego se borró exitosamente'
+            })
+        } catch (error) {
+            response.status(500).send(error)
+        }
     }
 }
 
