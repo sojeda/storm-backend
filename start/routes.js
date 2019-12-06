@@ -32,7 +32,7 @@ Route.resource('users', 'UserController')
   ]))
 
 Route.resource('games', 'GameController').apiOnly()
-Route.resource('games', 'Backoffice/GameController')
+Route.resource('admin/games', 'Backoffice/GameController')
   .apiOnly()
   .validator(new Map([
     [['games.store'], ['StoreGame']],
