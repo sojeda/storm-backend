@@ -10,7 +10,7 @@ class GameSchema extends Schema {
       table.string('title')
       table.text('description')
       table.integer('developer_id')
-      table.integer('category')
+      table.integer('category_id')
       table.integer('year')
       table.boolean('apt')
       table.string('video')

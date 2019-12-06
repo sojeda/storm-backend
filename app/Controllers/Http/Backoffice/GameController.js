@@ -8,9 +8,9 @@ class GameController {
     }
 
     async store({ request, response }) {
-        const { title, description, developer_id, category, year, apt, video, price } = request.all();
+        const { title, description, developer_id, category_id, year, apt, video, price } = request.all();
 
-        const game = await Game.create({ title, description, developer_id, category, year, apt, video, price })
+        const game = await Game.create({ title, description, developer_id, category_id, year, apt, video, price })
         response.json({
             message: 'Juego creado exitosamente',
             game
@@ -27,11 +27,11 @@ class GameController {
 
     async update({ request, response, params }) {
         try {
-            const { title, description, developer_id, category, year, apt, video, price } = request.all();
+            const { title, description, developer_id, category_id, year, apt, video, price } = request.all();
 
             let game = await Game.find(params.id)
 
-            game.merge({ title, description, developer_id, category, year, apt, video, price });
+            game.merge({ title, description, developer_id, category_id, year, apt, video, price });
 
             await game.save();
 

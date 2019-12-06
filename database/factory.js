@@ -30,7 +30,7 @@ Factory.blueprint('App/Models/Game', async (faker) => {
     title: faker.sentence({ words: 4 }),
     description: faker.paragraph(),
     developer_id: faker.integer({ min: 1, max: 9999 }),
-    category: faker.integer({ min: 1, max: 9999 }),
+    category_id: faker.integer({ min: 1, max: 9999 }),
     year: faker.integer({ min: 1000, max: 9999 }),
     apt: faker.bool({ likelihood: 70 }),
     video: faker.url(),
