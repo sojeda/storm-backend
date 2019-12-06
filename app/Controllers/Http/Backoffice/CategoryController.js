@@ -60,6 +60,7 @@ class CategoryController {
       response.status(500).json({
         message: 'No se pudo borrar la categoria'
       })
+
     }
   }
 }
