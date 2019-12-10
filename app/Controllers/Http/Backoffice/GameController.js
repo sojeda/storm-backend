@@ -21,7 +21,7 @@ class GameController {
         try {
             return await Game.find(params.id)
         } catch (error) {
-            response.send('Missing or invalid jwt token')
+            response.send('Error')
         }
     }
 

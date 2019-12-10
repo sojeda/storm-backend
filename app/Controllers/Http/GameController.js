@@ -9,9 +9,13 @@ class GameController {
 
     async show({ request, response, params }) {
         try {
-            return await Game.find(params.id)
+            const game = await Game.find(params.id)
+            if (!game) {
+                return response.send('Not found')
+            }
+            return response.json({ game })
         } catch (error) {
-            response.send('Missing or invalid jwt token')
+            response.send('Error')
         }
     }
 }
