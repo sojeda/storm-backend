@@ -30,9 +30,18 @@ Route.resource('users', 'UserController')
   .validator(new Map([
     [['users.store'], ['StoreUser']],
     [['users.update'], ['UpdateUser']]
-]));
- 
-Route.resource('admin/users', 'Backoffice/UserController').apiOnly().middleware(['auth']);  
+  ]))
+
+Route.resource('games', 'GameController').apiOnly()
+Route.resource('admin/games', 'Backoffice/GameController')
+  .apiOnly()
+  .validator(new Map([
+    [['games.store'], ['StoreGame']],
+    [['games.update'], ['UpdateGame']]
+  ]))
+  .middleware(['auth'])
+
+Route.resource('admin/users', 'Backoffice/UserController').apiOnly().middleware(['auth'])
 
 // Routes categories
 //Routes Front
@@ -43,14 +52,14 @@ Route.resource('admin/categories', 'Backoffice/CategoryController')
   .validator(new Map([
     [['category.store'], ['StoreCategory']],
     [['category.update'], ['UpdateCategory']]
-]))
-.middleware(['auth']);
+  ]))
+  .middleware(['auth']);
 
 //Routes Developer  
 //Routes Front
 Route.group(() => {
-    Route.get('/', 'DeveloperController.index' )   
-    Route.get('show/:id', 'DeveloperController.show')  
+  Route.get('/', 'DeveloperController.index')
+  Route.get('show/:id', 'DeveloperController.show')
 }).prefix('developers')
 
 //Routes Back
@@ -61,7 +70,7 @@ Route.resource('admin/developers', 'Backoffice/DeveloperController')
     [['admin/developer.store'], ['StoreDeveloper']],
     [['admin/developer.update'], ['UpdateDeveloper']]
   ]));
-  
+
 
 
 
