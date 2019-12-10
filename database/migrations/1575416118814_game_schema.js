@@ -9,13 +9,26 @@ class GameSchema extends Schema {
       table.increments()
       table.string('title')
       table.text('description')
-      table.integer('developer_id')
-      table.integer('category_id')
+      table
+        .integer('developer_id')
+        .unsigned()
+        .references('id')
+        .inTable('developers')
+        .onDelete('cascade')
+        .onUpdate('cascade')
+      table
+        .integer('category_id')
+        .unsigned()
+        .references('id')
+        .inTable('categories')
+        .onDelete('cascade')
+        .onUpdate('cascade')
       table.integer('year')
       table.boolean('apt')
       table.string('video')
       table.integer('price')
       table.timestamps()
+
     })
   }
 
