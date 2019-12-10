@@ -1,6 +1,6 @@
 'use strict'
 
-class StoreDevelopers {
+class StoreDeveloper {
   get rules () {
     return {
       name: `required|unique:developer,name,id,${developerId}`,
@@ -10,4 +10,4 @@ class StoreDevelopers {
   }
 }
 
-module.exports = StoreDevelopers
+module.exports = StoreDeveloper

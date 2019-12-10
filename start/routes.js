@@ -51,15 +51,15 @@ Route.resource('admin/categories', 'Backoffice/CategoryController')
 Route.group(() => {
     Route.get('/', 'DeveloperController.index' )   
     Route.get('show/:id', 'DeveloperController.show')  
-}).prefix('developer')
+}).prefix('developers')
 
 //Routes Back
-Route.resource('admin/developer', 'Backoffice/DeveloperController')
+Route.resource('admin/developers', 'Backoffice/DeveloperController')
   .apiOnly()
   .middleware(['auth'])
   .validator(new Map([
-    [['developer.store'], ['StoreDevelopers']],
-    [['developer.update'], ['UpdateDevelopers']]
+    [['admin/developer.store'], ['StoreDeveloper']],
+    [['admin/developer.update'], ['UpdateDeveloper']]
   ]));
   
 
