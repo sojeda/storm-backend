@@ -16,6 +16,7 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+//Route Users/Admin
 Route.on('/').render('welcome')
 
 Route.post('login', 'LoginController.login')
@@ -42,11 +43,34 @@ Route.resource('admin/games', 'Backoffice/GameController')
 
 Route.resource('admin/users', 'Backoffice/UserController').apiOnly().middleware(['auth'])
 
+// Routes categories
+//Routes Front
 Route.resource('categories', 'CategoryController').apiOnly()
+//Routes Back
 Route.resource('admin/categories', 'Backoffice/CategoryController')
   .apiOnly()
   .validator(new Map([
     [['category.store'], ['StoreCategory']],
     [['category.update'], ['UpdateCategory']]
   ]))
+  .middleware(['auth']);
+
+//Routes Developer  
+//Routes Front
+Route.group(() => {
+  Route.get('/', 'DeveloperController.index')
+  Route.get('show/:id', 'DeveloperController.show')
+}).prefix('developers')
+
+//Routes Back
+Route.resource('admin/developers', 'Backoffice/DeveloperController')
+  .apiOnly()
   .middleware(['auth'])
+  .validator(new Map([
+    [['admin/developer.store'], ['StoreDeveloper']],
+    [['admin/developer.update'], ['UpdateDeveloper']]
+  ]));
+
+
+
+

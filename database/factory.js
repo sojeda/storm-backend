@@ -27,6 +27,7 @@ Factory.blueprint('App/Models/User', async (faker) => {
   }
 })
 
+<<<<<<< HEAD
 Factory.blueprint('App/Models/Game', async (faker) => {
 
   const developers = await Database.select('id').from('developers')
@@ -45,3 +46,16 @@ Factory.blueprint('App/Models/Game', async (faker) => {
     price: faker.integer({ min: 1, max: 9999 })
   }
 })
+=======
+Factory.blueprint('App/Models/Developer', async (faker) => {
+  return {
+    name: faker.name(),
+    description: faker.paragraph(),
+    logo: faker.avatar({protocol: "https"}),
+    youtube: faker.domain(),
+    instagram: faker.domain(),
+    facebook: faker.domain(),
+    web: faker.url(),
+  }
+})
+>>>>>>> d27a95604c6c2eb43bf995c85ce167833dd860dc
