@@ -16,6 +16,7 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+//Route Users/Admin
 Route.on('/').render('welcome')
 
 Route.post('login', 'LoginController.login')
@@ -29,7 +30,9 @@ Route.resource('users', 'UserController')
   .validator(new Map([
     [['users.store'], ['StoreUser']],
     [['users.update'], ['UpdateUser']]
-  ]))
+]));
+ 
+Route.resource('admin/users', 'Backoffice/UserController').apiOnly().middleware(['auth']);  
 
 // Routes categories
 //Routes Front
@@ -40,8 +43,8 @@ Route.resource('admin/categories', 'Backoffice/CategoryController')
   .validator(new Map([
     [['category.store'], ['StoreCategory']],
     [['category.update'], ['UpdateCategory']]
-  ]))
-  .middleware(['auth'])
+]))
+.middleware(['auth']);
 
 //Routes Developer  
 //Routes Front
@@ -60,5 +63,5 @@ Route.resource('admin/developer', 'Backoffice/DeveloperController')
   ]));
   
 
-Route.resource('admin/users', 'Backoffice/UserController').apiOnly().middleware(['auth']);
+
 
