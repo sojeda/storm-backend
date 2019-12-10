@@ -58,8 +58,8 @@ Route.resource('admin/developers', 'Backoffice/DeveloperController')
   .apiOnly()
   .middleware(['auth'])
   .validator(new Map([
-    [['admin/developer.store'], ['StoreDeveloper']],
-    [['admin/developer.update'], ['UpdateDeveloper']]
+    [['admin/developers.store'], ['StoreDeveloper']],
+    [['admin/developers.update'], ['UpdateDeveloper']]
   ]));
   
 
