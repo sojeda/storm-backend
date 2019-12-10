@@ -7,7 +7,7 @@ class DeveloperController {
         return await Developer.all()
     };
 
-    async show ({ request, response, params}) {
+    async show ({ request, response, params }) {
        return await Developer.find(params.id)
     };
 

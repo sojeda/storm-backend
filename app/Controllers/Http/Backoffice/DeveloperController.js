@@ -11,7 +11,7 @@ class DeveloperController {
         return await Developer.find(params.id)
     }
 
-    async store ({ request, response}) {
+    async store ({ request, response }) {
         const developerData = request.only(['name', 'description', 'logo', 'youtube', 'instagram', 'facebook', 'web']);
 
         let developer = await Developer.create(developerData)
