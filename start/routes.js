@@ -33,7 +33,7 @@ Route.resource('users', 'UserController')
     [['users.update'], ['UpdateUser']]
   ]))
 
-Route.resource('games', 'GameController').apiOnly()
+Route.resource('games', 'GameController').only(['index', 'show'])
 Route.resource('admin/games', 'Backoffice/GameController')
   .apiOnly()
   .validator(new Map([
