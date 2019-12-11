@@ -5,7 +5,7 @@ class UpdateDeveloper {
     const developerId = this.ctx.params.id
 
     return {
-      name: `required|unique:developer,name,id,${developerId}`,
+      name: `required|unique:developers,name,id,${developerId}`,
       description:'required',
       logo:'required'
     }
