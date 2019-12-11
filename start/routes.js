@@ -46,7 +46,11 @@ Route.resource('admin/users', 'Backoffice/UserController').apiOnly().middleware(
 
 // Routes categories
 //Routes Front
-Route.resource('categories', 'CategoryController').apiOnly()
+Route.group(() => {
+  Route.get('/', 'CategoryController.index')
+  Route.get('show/:id', 'CategoryController.show')
+}).prefix('categories');
+
 //Routes Back
 Route.resource('admin/categories', 'Backoffice/CategoryController')
   .apiOnly()
@@ -61,7 +65,7 @@ Route.resource('admin/categories', 'Backoffice/CategoryController')
 Route.group(() => {
   Route.get('/', 'DeveloperController.index')
   Route.get('show/:id', 'DeveloperController.show')
-}).prefix('developers')
+}).prefix('developers');
 
 //Routes Back
 Route.resource('admin/developers', 'Backoffice/DeveloperController')
