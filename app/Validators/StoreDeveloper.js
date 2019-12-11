@@ -3,9 +3,9 @@
 class StoreDeveloper {
   get rules () {
     return {
-      name: `required|unique:developers`,
-      password: 'required',
-      logo:'required'
+      name: `required|unique`,
+      logo:'required',
+      description: 'required'
     }
   }
 }
