@@ -5,8 +5,8 @@
   "description": "The fullstack application boilerplate for Adonisjs",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "node ace test"
+    "start": "ENV_SILENT=true node server.js",
+    "test": "ENV_SILENT=true node ace test"
   },
   "keywords": [
     "adonisjs",
