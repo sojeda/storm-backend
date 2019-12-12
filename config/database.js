@@ -7,6 +7,7 @@ const Env = use('Env')
 const Helpers = use('Helpers')
 
 const Url = require('url-parse')
+const CLEARDB_DATABASE_URL = new Url(Env.get('CLEARDB_DATABASE_URL'))
 
 module.exports = {
   /*
@@ -48,16 +49,15 @@ module.exports = {
   |
   | npm i --save mysql
   |
-  mysql://baf31f3e926490:41ff1159@us-cdbr-iron-east-05.cleardb.net/heroku_b715ef765f765d1?reconnect=true
   */
   mysql: {
     client: 'mysql',
     connection: {
-      host: Env.get('DB_HOST', 'us-cdbr-iron-east-05.cleardb.net'),
+      host: Env.get('DB_HOST', CLEARDB_DATABASE_URL.host),
       port: Env.get('DB_PORT', ''),
-      user: Env.get('DB_USER', 'baf31f3e926490'),
-      password: Env.get('DB_PASSWORD', '41ff1159'),
-      database: Env.get('DB_DATABASE', 'heroku_b715ef765f765d1')
+      user: Env.get('DB_USER', CLEARDB_DATABASE_URL.username),
+      password: Env.get('DB_PASSWORD', CLEARDB_DATABASE_URL.password),
+      database: Env.get('DB_DATABASE', CLEARDB_DATABASE_URL.pathname.substr(1))
     }
   },
 
