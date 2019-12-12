@@ -53,16 +53,13 @@ class CategoryController {
     try {
       await category.delete()
       category = await Category.find(id)
-      if (category==null) {
-        response.json({
-          message: 'Categoria borrada con exito'
-        })
-      }
+      response.json({
+        message: 'Categoria borrada con exito'
+      })
+    } catch (error) {
       response.status(500).json({
         message: 'No se pudo borrar la categoria'
       })
-    } catch (error) {
-      response.status(500).send(error)
     }
   }
 }
