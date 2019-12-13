@@ -21,7 +21,7 @@ Route.on('/').render('welcome')
 
 Route.post('login', 'LoginController.login')
 Route.post('logout', 'LoginController.logout')
-Route.post('register', 'UserController.store')
+Route.post('register', 'UserController.store').validator('StoreUser')
 
 Route.resource('users', 'UserController')
   .apiOnly()
