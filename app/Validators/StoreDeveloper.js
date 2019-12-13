@@ -3,7 +3,7 @@
 class StoreDeveloper {
   get rules () {
     return {
-      name: `required|unique`,
+      name: `required|unique:developers`,
       logo:'required',
       description: 'required'
     }
