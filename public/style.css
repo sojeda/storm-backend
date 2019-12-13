@@ -1,15 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300");
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
-  background-image: url("/splash.png");
-  background-color: #220052;
+  /* background-image: url("/splash.png");
+  background-color: #220052; */
 }
 
 * {
@@ -28,7 +29,7 @@ section {
   position: relative;
 }
 
-section:before {
+/* section:before {
   content: "";
   position: absolute;
   background: url("/pyramid.png") no-repeat;
@@ -36,6 +37,10 @@ section:before {
   width: 100%;
   height: 402px;
   z-index: -1;
+} */
+
+#welcome-page {
+  text-align: center;
 }
 
 .logo {
@@ -45,7 +50,7 @@ section:before {
   background-size: 100%;
   margin-bottom: 35px;
   opacity: 0;
-  animation: slideUp 1s cubic-bezier(0.19, 1, 0.30, 1) 1.3s forwards;
+  animation: slideUp 1s cubic-bezier(0.19, 1, 0.3, 1) 1.3s forwards;
 }
 
 .title {
@@ -54,19 +59,18 @@ section:before {
   height: 36px;
   background-size: 100%;
   opacity: 0;
-  animation: slideUp 1s cubic-bezier(0.19, 1, 0.30, 1) 0.2s forwards;
+  animation: slideUp 1s cubic-bezier(0.19, 1, 0.3, 1) 0.2s forwards;
 }
 
 .subtitle {
   margin-top: 25px;
-  color: #BDB3CB;
+  color: #bdb3cb;
   font-size: 17px;
   text-align: center;
   letter-spacing: 0.5;
   opacity: 0;
-  animation: slideUp 1s cubic-bezier(0.19, 1, 0.30, 1) 0.5s forwards;
+  animation: slideUp 1s cubic-bezier(0.19, 1, 0.3, 1) 0.5s forwards;
 }
-
 
 a {
   color: inherit;
@@ -74,7 +78,8 @@ a {
 }
 
 p {
-  margin: 0.83rem 0;
+  margin: 1.5rem 0;
+  font-weight: 700;
 }
 
 @keyframes slideUp {
